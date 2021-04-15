@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">G Wallet</string>
+    <string name="razor_apikey">rzp_test_xcyzZkdFCDhWjC</string>
+
 </resources>

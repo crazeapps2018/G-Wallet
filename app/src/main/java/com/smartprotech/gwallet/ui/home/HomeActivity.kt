@@ -25,6 +25,8 @@ class HomeActivity : AppCompatActivity(), KodeinAware {
         viewModel = ViewModelProviders.of(this, factory).get(HomeViewModel::class.java)
         binding.viewmodel = viewModel
 
+
+
     }
 
 }
