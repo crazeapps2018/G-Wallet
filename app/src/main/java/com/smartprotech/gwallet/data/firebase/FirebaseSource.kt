@@ -1,5 +1,6 @@
 package com.smartprotech.gwallet.data.firebase
 
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
 import io.reactivex.Completable
 
@@ -8,6 +9,8 @@ class FirebaseSource {
     private val firebaseAuth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
     }
+
+
 
 
     fun login(email: String, password: String) = Completable.create { emitter ->
@@ -30,6 +33,19 @@ class FirebaseSource {
                     emitter.onError(it.exception!!)
             }
         }
+    }
+
+
+    fun sendPassword(email: String) = Completable.create { emitter ->
+        firebaseAuth.sendPasswordResetEmail(email)
+            .addOnCompleteListener {
+                if (!emitter.isDisposed) {
+                    if (it.isSuccessful)
+                        emitter.onComplete()
+                    else
+                        emitter.onError(it.exception!!)
+                }
+            }
     }
 
     fun logout() = firebaseAuth.signOut()

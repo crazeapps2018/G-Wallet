@@ -1,4 +1,4 @@
-package com.smartprotech.gwallet.ui.home
+package com.smartprotech.gwallet.ui.payment
 
 import android.os.Bundle
 import android.widget.Toast
@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.razorpay.Checkout
 import com.razorpay.PaymentResultListener
 import com.smartprotech.gwallet.R
-import com.smartprotech.gwallet.databinding.ActivityHomeBinding
 import com.smartprotech.gwallet.databinding.ActivityPaymentBinding
 import org.json.JSONObject
 import org.kodein.di.KodeinAware
@@ -16,11 +15,11 @@ import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
 
 class PaymentActivity: AppCompatActivity(),KodeinAware,PaymentResultListener,
-PaymentListener{
+    PaymentListener {
 
 
     override val kodein by kodein()
-    private val factory : HomeViewModelFactory by instance()
+    private val factory : PaymentViewModelFactory by instance()
 
     private lateinit var viewModel: PaymentViewModel
 
@@ -30,8 +29,9 @@ PaymentListener{
 
         val binding: ActivityPaymentBinding = DataBindingUtil.setContentView(this, R.layout.activity_payment)
         viewModel = ViewModelProviders.of(this, factory).get(PaymentViewModel::class.java)
-        binding.viewmodel = viewModel
+        binding.paymentviewmodel = viewModel
 
+        viewModel.paymentListener = this
     }
 
 

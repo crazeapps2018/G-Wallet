@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.smartprotech.gwallet">
+        package="com.smartprotech.gwallet">
 
     <application
             android:name=".FirebaseApplication"
@@ -10,18 +10,23 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.home.HomeActivity">
-        </activity>
-        <activity android:name=".ui.auth.SignupActivity">
-        </activity>
-        <activity android:name=".ui.home.PaymentActivity"/>
+        <activity android:name=".ui.auth.ForgotPasswordActivity"></activity>
+        <activity android:name=".ui.home.HomeActivity"></activity>
+        <activity android:name=".ui.auth.SignupActivity"></activity>
+        <activity android:name=".ui.payment.PaymentActivity" />
         <activity android:name=".ui.auth.LoginActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- Add your API key here -->
+        <meta-data
+                android:name="com.razorpay.ApiKey"
+                android:value="rzp_test_xcyzZkdFCDhWjC" />
+        <meta-data
+                android:name="com.google.android.gms.wallet.api.enabled"
+                android:value="true" />
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import com.smartprotech.gwallet.data.firebase.FirebaseSource
 import com.smartprotech.gwallet.data.repositories.UserRepository
 import com.smartprotech.gwallet.ui.auth.AuthViewModelFactory
 import com.smartprotech.gwallet.ui.home.HomeViewModelFactory
+import com.smartprotech.gwallet.ui.payment.PaymentViewModelFactory
 
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -23,6 +24,7 @@ class FirebaseApplication : Application(), KodeinAware{
         bind() from singleton { UserRepository(instance()) }
         bind() from provider { AuthViewModelFactory(instance()) }
         bind() from provider { HomeViewModelFactory(instance()) }
+        bind() from provider { PaymentViewModelFactory() }
 
     }
 }

@@ -27,6 +27,7 @@ class AuthViewModel(
         repository.currentUser()
     }
 
+
     //function to perform login
     fun login() {
 
@@ -53,6 +54,15 @@ class AuthViewModel(
         disposables.add(disposable)
     }
 
+    // function to new password
+    fun navigateToForgetPassword(view: View) {
+        Intent(view.context, ForgotPasswordActivity::class.java).also {
+            view.context.startActivity(it)
+        }
+
+    }
+
+
     //Doing same thing with signup
     fun signup() {
         if (email.isNullOrEmpty() || password.isNullOrEmpty()) {
@@ -69,6 +79,31 @@ class AuthViewModel(
                 authListener?.onFailure(it.message!!)
             })
         disposables.add(disposable)
+    }
+
+    fun sendPassword(view: View) {
+
+        //validating email and password
+        if (email.isNullOrEmpty()) {
+            authListener?.onFailure("Invalid email or password")
+            return
+        }
+
+        //authentication started
+        authListener?.onStarted()
+
+        //calling send password from repository
+        val disposable = repository.sendPassword(email!!)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                authListener?.onSuccess()
+            }, {
+                authListener?.onFailure(it.message!!)
+            })
+        disposables.add(disposable)
+
+
     }
 
     fun goToSignup(view: View) {

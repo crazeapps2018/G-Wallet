@@ -13,4 +13,6 @@ class UserRepository (
     fun currentUser() = firebase.currentUser()
 
     fun logout() = firebase.logout()
+
+    fun sendPassword(email: String) = firebase.sendPassword(email)
 }

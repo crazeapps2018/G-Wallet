@@ -1,4 +1,4 @@
-package com.smartprotech.gwallet.ui.home
+package com.smartprotech.gwallet.ui.payment
 
 import android.view.View
 import androidx.lifecycle.ViewModel
@@ -11,7 +11,7 @@ import org.json.JSONObject
 
 
 
-class PaymentViewModel():ViewModel() {
+class PaymentViewModel:ViewModel() {
 
     //email and password for the input
     var amount: String? = null
@@ -23,6 +23,7 @@ class PaymentViewModel():ViewModel() {
 
         if (amount.isNullOrEmpty()){
             paymentListener?.emptyAmount("Amount can't be empty")
+            return
         }
         // rounding off the amount.
         val amount = Math.round(amount!!.toFloat() * 100).toInt()
@@ -43,7 +44,7 @@ class PaymentViewModel():ViewModel() {
             jsonObject.put("name", "G Wallet")
 
             // put description
-            jsonObject.put("description", "Test payment")
+            jsonObject.put("description", "Mera paise")
 
             // to set theme color
             jsonObject.put("theme.color", "")

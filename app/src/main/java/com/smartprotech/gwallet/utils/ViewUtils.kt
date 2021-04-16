@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import com.smartprotech.gwallet.ui.auth.LoginActivity
 import com.smartprotech.gwallet.ui.home.HomeActivity
-import com.smartprotech.gwallet.ui.home.PaymentActivity
+import com.smartprotech.gwallet.ui.payment.PaymentActivity
 
 fun Context.startHomeActivity() =
     Intent(this, HomeActivity::class.java).also {
