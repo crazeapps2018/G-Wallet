@@ -66,6 +66,8 @@
                             android:drawableLeft="@drawable/ic_email"
                             android:drawablePadding="10dp"
                             android:singleLine="true"
+                            android:textSize="14sp"
+
                             android:text="@={viewmodel.email}"
                             android:layout_marginBottom="10dp"
                             android:hint="Enter your email"
@@ -87,6 +89,7 @@
                             android:id="@+id/edit_text_password"
                             android:drawableLeft="@drawable/ic_lock"
                             android:hint="Password"
+                            android:textSize="14sp"
                             android:inputType="textPassword"/>
 
 

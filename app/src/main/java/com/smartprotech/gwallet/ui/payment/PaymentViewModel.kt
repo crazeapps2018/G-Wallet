@@ -8,9 +8,6 @@ import org.json.JSONException
 import org.json.JSONObject
 
 
-
-
-
 class PaymentViewModel:ViewModel() {
 
     //email and password for the input
