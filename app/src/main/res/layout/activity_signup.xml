@@ -11,7 +11,7 @@
 
     <RelativeLayout android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#008577"
+            android:background="@color/lightgrey"
                     android:orientation="vertical"
                     tools:context=".ui.auth.SignupActivity"
                     android:scrollbarAlwaysDrawVerticalTrack="true">
@@ -29,7 +29,7 @@
                     android:layout_marginBottom="16dp"
                     android:gravity="center_horizontal"
                     android:text="New User Signup"
-                    android:textColor="#fff"
+                    android:textColor="@color/black"
                     android:textSize="26sp"
                     android:textStyle="bold"/>
 
